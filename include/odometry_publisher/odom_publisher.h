@@ -22,12 +22,7 @@ private:
     ros::NodeHandle nh_;
     ros::Publisher odom_publisher_;
     ros::Subscriber velocity_subscriber_;
-    // ros::Subscriber qr_pose_subscriber_;
     tf2::Quaternion odom_quat;
-    geometry_msgs::TransformStamped odom_trans;
-    geometry_msgs::TransformStamped map_trans;
-    tf2_ros::TransformBroadcaster map_broadcaster_;
-    tf2_ros::TransformBroadcaster odom_broadcaster_;
     nav_msgs::Odometry odom;
     ros::ServiceServer set_pose_srv_;
 
