@@ -1,13 +1,13 @@
 <?xml version="1.0.0"?>
     <package>
-    <name>odom_publisher</name>
+    <name>robotec_odometry_publisher</name>
     <version>1.0.0</version>
-    <description>Odometry publisher node for FoBots project</description>
-    <maintainer email="jimenojmm@gmail.com">t</maintainer>
+    <description>Odometry publisher node for Robotec project</description>
+    <maintainer email="illia.shvarov@gmail.com">Illia Shvarov</maintainer>
 
     <license>BSD</license>
 
-    <url type="website">http://www.linorobot.org</url>
+    <url type="website">http://www.robotec.ua</url>
 
     <author email="jimenojmm@gmail.com">Juan Miguel Jimeno</author>
 

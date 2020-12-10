@@ -12,10 +12,19 @@ Odom::Odom():
     y_pos_(0),
     heading_(0)
 {
-    odom_publisher_ = nh_.advertise<nav_msgs::Odometry>("raw_odom", 50);
-    velocity_subscriber_ = nh_.subscribe("raw_vel", 50, &Odom::velCallback, this);
+    std::string odom_topic,
+                velocity_topic,
+                setpose_service;
+
+    //
+    nh.param<std::string>("odom_topic", odom_topic, "raw_odom");
+    nh.param<std::string>("velocity_topic", velocity_topic, "raw_vel");
+    nh.param<std::string>("setpose_service", setpose_service, "odom/set_pose");
+
+    odom_publisher_ = nh_.advertise<nav_msgs::Odometry>(odom_topic, 50);
+    velocity_subscriber_ = nh_.subscribe(velocity_topic, 50, &Odom::velCallback, this);
     // qr_pose_subscriber_ = nh_.subscribe("qrcode/detections", 10, &Odom::qr, this);
-    set_pose_srv_ = nh_.advertiseService("odom/set_pose", &Odom::setPoseSrvCallback, this);
+    set_pose_srv_ = nh_.advertiseService(setpose_service, &Odom::setPoseSrvCallback, this);
 }
 
 bool Odom::setPoseSrvCallback(fobots_msgs::SetPose::Request& request,
