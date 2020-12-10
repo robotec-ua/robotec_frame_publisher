@@ -25,15 +25,14 @@ The package is created for only one task : to be a middle-man between odometry d
 ```
 
 ### Folders
-* `include` : C/C++ Headers and ROS Messages/Services
-* `msg` : ROS messages files
-* `scripts` : miscellaneous scripts needed by the project 
-* `srv` : ROS services files
+* `include` : C/C++ Headers
+* `src` : code of the package
 
 ### Files
-* `CHANGELOG.md` : the file where the changes to the project are desribed
 * `README.md` : the documentation of the project
-* `TODO.md` : suggesting changes in the package 
+* `odom_publisher.h` : the main class declaration
+* `odom_publisher.cpp` : program functionality
+* `odom_publisher_node.cpp` : node declaration
 
 ## Algorithm
 The package receives data from user-defined topics (velocity) and packs it into messages with a structure for creating navigation frames (map and odom) by EKF.
