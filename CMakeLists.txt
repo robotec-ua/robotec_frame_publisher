@@ -15,7 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
     tf2
 	  tf2_ros
     nav_msgs
-    fobots_msgs
+    robotec_msgs
     geometry_msgs
     sensor_msgs
     std_msgs
@@ -24,7 +24,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES robotec_odometry_publisher
-  CATKIN_DEPENDS roscpp rospy tf2 tf2_ros nav_msgs fobots_msgs geometry_msgs sensor_msgs std_msgs
+  CATKIN_DEPENDS roscpp rospy tf2 tf2_ros nav_msgs robotec_msgs geometry_msgs sensor_msgs std_msgs
 )
 
 ###########
@@ -38,5 +38,5 @@ include_directories(
 
 add_library(robotec_odometry_publisher src/odom_publisher.cpp)
 add_executable(robotec_odometry_publisher_node src/odom_publisher_node.cpp)
-target_link_libraries(robotec_odometry_publisher_node odom_publisher ${catkin_LIBRARIES})
-add_dependencies(robotec_odometry_publisher fobots_msgs_generate_messages_cpp)
+target_link_libraries(robotec_odometry_publisher_node robotec_odometry_publisher ${catkin_LIBRARIES})
+add_dependencies(robotec_odometry_publisher robotec_msgs_generate_messages_cpp)

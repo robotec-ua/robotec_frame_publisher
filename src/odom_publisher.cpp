@@ -1,6 +1,6 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 
-#include "odometry_publisher/odom_publisher.h"
+#include "robotec_odometry_publisher/odom_publisher.h"
 
 Odom::Odom():
     linear_velocity_x_(0),
@@ -17,17 +17,17 @@ Odom::Odom():
                 setpose_service;
 
     // Getting the parameters
-    nh.param<std::string>("odom_topic", odom_topic, "raw_odom");
-    nh.param<std::string>("velocity_topic", velocity_topic, "raw_vel");
-    nh.param<std::string>("setpose_service", setpose_service, "odom/set_pose");
+    nh_.param<std::string>("odom_topic", odom_topic, "raw_odom");
+    nh_.param<std::string>("velocity_topic", velocity_topic, "raw_vel");
+    nh_.param<std::string>("setpose_service", setpose_service, "odom/set_pose");
 
     odom_publisher_ = nh_.advertise<nav_msgs::Odometry>(odom_topic, 50);
     velocity_subscriber_ = nh_.subscribe(velocity_topic, 50, &Odom::velCallback, this);
     set_pose_srv_ = nh_.advertiseService(setpose_service, &Odom::setPoseSrvCallback, this);
 }
 
-bool Odom::setPoseSrvCallback(fobots_msgs::SetPose::Request& request,
-                              fobots_msgs::SetPose::Response&)
+bool Odom::setPoseSrvCallback(robotec_msgs::SetPose::Request& request,
+                              robotec_msgs::SetPose::Response&)
 {
 
     x_pos_ = request.pose.pose.pose.position.x;  // PoseWithCovarianceStamped -> PoseWithCovariance -> Pose
@@ -50,7 +50,7 @@ bool Odom::setPoseSrvCallback(fobots_msgs::SetPose::Request& request,
     ROS_INFO("Set pose to x: %.6f, y: %.6f, heading: %.6f", x_pos_, y_pos_, heading_);
 }
 
-void Odom::velCallback(const fobots_msgs::Velocities& vel) {
+void Odom::velCallback(const robotec_msgs::Velocities& vel) {
     ros::Time current_time = ros::Time::now();
 
     linear_velocity_x_ = vel.linear_x;

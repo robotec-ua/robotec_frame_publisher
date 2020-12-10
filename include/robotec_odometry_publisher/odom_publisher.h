@@ -2,8 +2,8 @@
 #define ODOM_H
 
 #include <ros/ros.h>
-#include <fobots_msgs/Velocities.h>
-#include <fobots_msgs/SetPose.h>
+#include <robotec_msgs/Velocities.h>
+#include <robotec_msgs/SetPose.h>
 
 #include <tf2_ros/transform_broadcaster.h>
 #include <nav_msgs/Odometry.h>
@@ -13,9 +13,9 @@
 class Odom final {
 public:
     Odom();
-    void velCallback(const fobots_msgs::Velocities& vel);
-    bool setPoseSrvCallback(fobots_msgs::SetPose::Request& request,
-                            fobots_msgs::SetPose::Response&);
+    void velCallback(const robotec_msgs::Velocities& vel);
+    bool setPoseSrvCallback(robotec_msgs::SetPose::Request& request,
+                            robotec_msgs::SetPose::Response&);
 
 
 private:
