@@ -17,9 +17,9 @@ Odom::Odom():
                 setpose_service;
 
     // Getting the parameters
-    nh_.param<std::string>("odom_topic", odom_topic, "raw_odom");
-    nh_.param<std::string>("velocity_topic", velocity_topic, "raw_vel");
-    nh_.param<std::string>("setpose_service", setpose_service, "odom/set_pose");
+    ros::param::get("~odom_topic", odom_topic);
+    ros::param::get("~velocity_topic", velocity_topic);
+    ros::param::get("~setpose_service", setpose_service);
 
     odom_publisher_ = nh_.advertise<nav_msgs::Odometry>(odom_topic, 50);
     velocity_subscriber_ = nh_.subscribe(velocity_topic, 50, &Odom::velCallback, this);
