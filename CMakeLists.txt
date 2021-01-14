@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(robotec_odometry_publisher)
+project(robotec_frame_publisher)
 
 ##################
 ## Dependencies ##
@@ -23,7 +23,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES robotec_odometry_publisher
+  LIBRARIES robotec_frame_publisher
   CATKIN_DEPENDS roscpp rospy tf2 tf2_ros nav_msgs robotec_msgs geometry_msgs sensor_msgs std_msgs
 )
 
@@ -36,7 +36,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_library(robotec_odometry_publisher src/odom_publisher.cpp)
-add_executable(robotec_odometry_publisher_node src/odom_publisher_node.cpp)
-target_link_libraries(robotec_odometry_publisher_node robotec_odometry_publisher ${catkin_LIBRARIES})
-add_dependencies(robotec_odometry_publisher robotec_msgs_generate_messages_cpp)
+add_executable(frame_publisher src/frame_publisher.cpp)
+target_link_libraries(frame_publisher ${catkin_LIBRARIES})
+add_dependencies(frame_publisher robotec_msgs_generate_messages_cpp)

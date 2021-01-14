@@ -1,6 +1,6 @@
 <?xml version="1.0.0"?>
     <package>
-    <name>robotec_odometry_publisher</name>
+    <name>robotec_frame_publisher</name>
     <version>1.0.0</version>
     <description>Odometry publisher node for Robotec project</description>
     <maintainer email="illia.shvarov@gmail.com">Illia Shvarov</maintainer>
@@ -10,6 +10,7 @@
     <url type="website">http://www.robotec.ua</url>
 
     <author email="jimenojmm@gmail.com">Juan Miguel Jimeno</author>
+    <author email="illia.shvarov@gmail.com">Illia Shvarov</author>
 
     <buildtool_depend>catkin</buildtool_depend>
     <build_depend>roscpp</build_depend>

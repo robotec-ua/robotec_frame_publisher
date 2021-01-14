@@ -1,5 +1,5 @@
 # Odometry Publisher Node
-The package is created for only one task : to be a middle-man between odometry data source and EKF and produce only one type of messages, used to create navigation frames (map and odom).
+The package is dedicated to be a unified frame publisher for dynamic data. It has a simple interface and a straightforward functionality.
 
 ## Table of contents
 * [Structure](#project_structure)
@@ -13,11 +13,10 @@ The package is created for only one task : to be a middle-man between odometry d
 ```
 .
 ├── include
-│   └── odometry_publisher
-│       └── odom_publisher.h
+│   └── robotec_frame_publisher
+│       └── frame_publisher.hpp
 ├── src
-│   ├── odom_publisher.cpp
-│   └── odom_publisher_node.cpp
+│   └── frame_publisher.cpp
 ├── CMakeLists.txt
 ├── LICENSE
 ├── package.xml
@@ -30,17 +29,17 @@ The package is created for only one task : to be a middle-man between odometry d
 
 ### Files
 * `README.md` : the documentation of the project
-* `odom_publisher.h` : the main class declaration
-* `odom_publisher.cpp` : program functionality
-* `odom_publisher_node.cpp` : node declaration
+* `frame_publisher.h` : the main class declaration
+* `frame_publisher.cpp` : program functionality
 
 ## Algorithm
-The package receives data from user-defined topics (velocity) and packs it into messages with a structure for creating navigation frames (map and odom) by EKF.
+The package receives data from user-defined topics (velocity and pose) and packs it into messages with a structure for creating navigation frames (specified by the user).
 
 ## Parameters
-* `odom_topic` : topic where to push odometry data, default : `raw_odom`
-* `velocity_topic` : velocity data, default : `raw_vel`
-* `setpose_service` : service for setting the pose of a robot, default : `set_pose`
+* `from` : parent frame_id
+* `to` : child frame_id
+* `twist_topic` : velocity data topic
+* `pose_topic` : pose data topic
 
 ## Credits
 * Original project : https://github.com/linorobot/linorobot

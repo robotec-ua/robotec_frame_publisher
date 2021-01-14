@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "ranges": "cpp",
+        "random": "cpp",
+        "stdexcept": "cpp"
+    }
+}
