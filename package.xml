@@ -1,38 +1,42 @@
 <?xml version="1.0.0"?>
-    <package>
+<package>
     <name>robotec_frame_publisher</name>
     <version>1.0.0</version>
-    <description>Odometry publisher node for Robotec project</description>
-    <maintainer email="illia.shvarov@gmail.com">Illia Shvarov</maintainer>
-
-    <license>BSD</license>
-
+    <description>Frame publisher node for Robotec projects</description>
+    
+    <!-- Official website of the project -->
     <url type="website">http://www.robotec.ua</url>
 
+    <!-- License tag -->
+    <license>BSD</license>
+
+    <!-- Maintainers -->
+    <maintainer email="illia.shvarov@gmail.com">Illia Shvarov</maintainer>
+
+    <!-- Authors -->
     <author email="jimenojmm@gmail.com">Juan Miguel Jimeno</author>
     <author email="illia.shvarov@gmail.com">Illia Shvarov</author>
 
+    <!-- Building dependencies -->
     <buildtool_depend>catkin</buildtool_depend>
     <build_depend>roscpp</build_depend>
     <build_depend>rospy</build_depend>
     <build_depend>tf2</build_depend>
 	<build_depend>tf2_ros</build_depend>
-    <build_depend>nav_msgs</build_depend>
-    <build_depend>robotec_msgs</build_depend>
     <build_depend>sensor_msgs</build_depend>
     <build_depend>geometry_msgs</build_depend>
     <build_depend>std_msgs</build_depend>
 
+    <!-- Runtime dependencies -->
     <run_depend>roscpp</run_depend>
     <run_depend>rospy</run_depend>
     <run_depend>tf2</run_depend>
 	<run_depend>tf2_ros</run_depend>
-    <run_depend>nav_msgs</run_depend>
-    <run_depend>robotec_msgs</run_depend>
     <run_depend>sensor_msgs</run_depend>
     <run_depend>geometry_msgs</run_depend>
     <run_depend>std_msgs</run_depend>
 
+    <!-- Export tag -->>
     <export>
     </export>
 </package>
